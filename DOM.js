@@ -93,15 +93,15 @@ header.style.borderBottom = "solid 3px #000"; */
 // var lastItem = document.querySelector('.list-group-item:last-child');
 // lastItem.style.color = 'blue';
 
-var secondItem = document.querySelector('.list-group-item:nth-child(2)');
-secondItem.style.backgroundColor = 'green';
+// var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+// secondItem.style.backgroundColor = 'green';
 
-var thirdItem = document.querySelector('.list-group-item:nth-child(3)');
-thirdItem.style.visibility = 'hidden';
+// var thirdItem = document.querySelector('.list-group-item:nth-child(3)');
+// thirdItem.style.visibility = 'hidden';
 
-var titles = document.querySelectorAll('.title');
-console.log(titles);
-titles[0].textContent = 'Hello';
+// var titles = document.querySelectorAll('.title');
+// console.log(titles);
+// titles[0].textContent = 'Hello';
 
 // var odd = document.querySelectorAll('li:nth-child(odd)');
 // for(var i=0;i<odd.length;i++)
@@ -115,9 +115,101 @@ titles[0].textContent = 'Hello';
 //     even[i].style.backgroundColor = '#ccc';
 // }
 
-var odd = document.querySelectorAll('li:nth-child(odd)');
-for(var i=0;i<odd.length;i++)
-{
-    odd[i].style.backgroundColor = 'lightgreen';
-}
+// var odd = document.querySelectorAll('li:nth-child(odd)');
+// for(var i=0;i<odd.length;i++)
+// {
+//     odd[i].style.backgroundColor = 'lightgreen';
+// }
+
+//TRAVERSING THE DOM
+
+var itemList = document.querySelector('#items');
+//parentElement
+console.log(itemList.parentNode);
+itemList.parentNode.style.backgroundColor = '#f4f4f4';
+console.log(itemList.parentNode.parentNode);
+console.log(itemList.parentNode.parentNode.parentNode);
+
+//parentelement
+console.log(itemList.parentElement);
+itemList.parentElement.style.backgroundColor = '#f4f4f4';
+console.log(itemList.parentElement.parentElement);
+console.log(itemList.parentElement.parentElement.parentElement);
+
+//childnodes
+console.log(itemList.childNodes);
+
+//children
+console.log(itemList.children);
+console.log(itemList.children[1]);
+itemList.children[1].style.backgroundColor = 'yellow';
+
+//firstchild
+console.log(itemList.firstChild);
+
+//firstelementchild
+console.log(itemList.firstElementChild);
+itemList.firstElementChild.textContent = "Hello 1";
+
+//lastchild
+console.log(itemList.firstChild);
+
+//lastelementchild
+console.log(itemList.lastElementChild);
+itemList.lastElementChild.textContent = "Hello 4";
+
+//nextsibling
+console.log(itemList.nextSibling);
+
+//nextelementsibling
+console.log(itemList.nextElementSibling);
+
+//previoussibling
+console.log(itemList.previousSibling);
+
+//previouselementsibling
+console.log(itemList.previousElementSibling);
+itemList.previousElementSibling.style.color = 'green';
+
+//createElement
+
+//create a div
+
+var newDiv = document.createElement('div');
+
+//Add a class
+newDiv.className = 'hello';
+
+//Add a ID
+newDiv.id = 'hello1';
+
+//Add attribute
+newDiv.setAttribute('title','Hello Div');
+
+//create text node
+var newDivText = document.createTextNode('Hello World');
+
+//Add text to div
+newDiv.appendChild(newDivText);
+
+
+
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
+
+// newDiv.style.fontSize = '30px';
+console.log(newDiv);
+
+container.insertBefore(newDiv, h1);
+
+newDiv.style.fontSize = '30px';
+
+
+
+
+
+
+
+
+
 
