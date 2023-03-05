@@ -54,36 +54,70 @@ header.style.borderBottom = "solid 3px #000"; */
 // } 
 
 //GET ELEMENTS BY TAG NAME --> pretty much the same as getelementsbyclassname
-var li = document.getElementsByTagName("li");
-console.log(li);
-console.log(li[3]);
-li[1].textContent = "Hello";
-li[1].style.fontWeight = "bold";
-li[2].style.backgroundColor = "green";
+// var li = document.getElementsByTagName("li");
+// console.log(li);
+// console.log(li[3]);
+// li[1].textContent = "Hello";
+// li[1].style.fontWeight = "bold";
+// li[2].style.backgroundColor = "green";
 
-//Gives Error
-//items.style.backgroundColor = "#f4f4f4";
+// //Gives Error
+// //items.style.backgroundColor = "#f4f4f4";
 
-for(let i=0;i<items.length;i++)
+// for(let i=0;i<items.length;i++)
+// {
+//     items[i].style.backgroundColor = "#f4f4f4";
+// }
+
+// for(let i=0;i < li.length; i++)
+// {
+//     li[i].style.fontWeight = "bold";
+//     li[i].style.backgroundColor = "lightblue";
+// }
+
+
+// //QUERY SELECTOR --> It works pretty much like JQuery. The only difference is it works only for one item.
+// var header = document.querySelector("#main-header");
+// header.style.borderBottom = "solid 4px #ccc";
+
+// //This input querySelector grabs only the first input by default
+// var input = document.querySelector("input");
+// input.value = "Hello!";
+
+// var input = document.querySelector('input[type="submit"]');
+// input.value = "Send";
+
+// var item = document.querySelector('.list-group-item');
+// item.style.color = 'red';
+
+// var lastItem = document.querySelector('.list-group-item:last-child');
+// lastItem.style.color = 'blue';
+
+var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+secondItem.style.backgroundColor = 'green';
+
+var thirdItem = document.querySelector('.list-group-item:nth-child(3)');
+thirdItem.style.visibility = 'hidden';
+
+var titles = document.querySelectorAll('.title');
+console.log(titles);
+titles[0].textContent = 'Hello';
+
+// var odd = document.querySelectorAll('li:nth-child(odd)');
+// for(var i=0;i<odd.length;i++)
+// {
+//     odd[i].style.backgroundColor = '#f4f4f4';
+// }
+
+// var even = document.querySelectorAll('li:nth-child(even)');
+// for(var i=0;i<even.length;i++)
+// {
+//     even[i].style.backgroundColor = '#ccc';
+// }
+
+var odd = document.querySelectorAll('li:nth-child(odd)');
+for(var i=0;i<odd.length;i++)
 {
-    items[i].style.backgroundColor = "#f4f4f4";
+    odd[i].style.backgroundColor = 'lightgreen';
 }
-
-for(let i=0;i < li.length; i++)
-{
-    li[i].style.fontWeight = "bold";
-    li[i].style.backgroundColor = "lightblue";
-}
-
-
-//QUERY SELECTOR --> It works pretty much like JQuery. The only difference is it works only for one item.
-var header = document.querySelector("#main-header");
-header.style.borderBottom = "solid 4px #ccc";
-
-//This input querySelector grabs only the first input by default
-var input = document.querySelector("input");
-input.value = "Hello!";
-
-var input = document.querySelector('input[type="submit"]');
-input.value = "Send";
 
