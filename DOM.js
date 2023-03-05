@@ -33,22 +33,57 @@ console.log(headerTitle); */
 header.style.borderBottom = "solid 3px #000"; */
 
 //GET ELEMENTS BY CLASS NAME
-var items = document.getElementsByClassName("list-group-item");
-console.log(items);
-console.log(items[3]);
-items[1].textContent = "Hello 2";
-items[1].style.fontWeight = "bold";
-items[2].style.backgroundColor = "green";
+// var items = document.getElementsByClassName("list-group-item");
+// console.log(items);
+// console.log(items[3]);
+// items[1].textContent = "Hello 2";
+// items[1].style.fontWeight = "bold";
+// items[2].style.backgroundColor = "green";
 
 //Gives Error
 //items.style.backgroundColor = "#f4f4f4";
 
-/* for(let i=0;i<items.length;i++)
-{
-    items[i].style.backgroundColor = "#f4f4f4";
-} */
+// for(let i=0;i<items.length;i++)
+// {
+//     items[i].style.backgroundColor = "#f4f4f4";
+// }
+
+// for(let i=0;i<items.length;i++)
+// {
+//     items[i].style.fontWeight = "bold";
+// } 
+
+//GET ELEMENTS BY TAG NAME --> pretty much the same as getelementsbyclassname
+var li = document.getElementsByTagName("li");
+console.log(li);
+console.log(li[3]);
+li[1].textContent = "Hello";
+li[1].style.fontWeight = "bold";
+li[2].style.backgroundColor = "green";
+
+//Gives Error
+//items.style.backgroundColor = "#f4f4f4";
 
 for(let i=0;i<items.length;i++)
 {
-    items[i].style.fontWeight = "bold";
+    items[i].style.backgroundColor = "#f4f4f4";
 }
+
+for(let i=0;i < li.length; i++)
+{
+    li[i].style.fontWeight = "bold";
+    li[i].style.backgroundColor = "lightblue";
+}
+
+
+//QUERY SELECTOR --> It works pretty much like JQuery. The only difference is it works only for one item.
+var header = document.querySelector("#main-header");
+header.style.borderBottom = "solid 4px #ccc";
+
+//This input querySelector grabs only the first input by default
+var input = document.querySelector("input");
+input.value = "Hello!";
+
+var input = document.querySelector('input[type="submit"]');
+input.value = "Send";
+
