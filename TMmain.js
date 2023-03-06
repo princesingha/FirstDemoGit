@@ -10,17 +10,17 @@ event.preventDefault();
 
 // console.log(localStorage.getItem('fullname', name));
 // console.log(localStorage.getItem('emailid', email));
-var name = document.getElementById('name').value;
-var email = document.getElementById('email').value;
-var number = document.getElementById('number').value;
+const name = event.target.name.value;
+const email = event.target.email.value;
+const number = event.target.number.value;
 
-let myObj = {
+const myObj = {
     name, email, number
 };
-let myObj_serialized = JSON.stringify(myObj);
-localStorage.setItem('myObj', myObj_serialized);
+const myObj_serialized = JSON.stringify(myObj);
+localStorage.setItem(myObj.email, myObj_serialized);
 //console.log(myObj_serialized);
-let myObj_deserialized = JSON.parse((localStorage.getItem('myObj')));
+const myObj_deserialized = JSON.parse((localStorage.getItem('myObj')));
 console.log(myObj_deserialized);
 
 showUserOnScreen(myObj);
@@ -32,7 +32,27 @@ function showUserOnScreen(myObj)
     const childElem = document.createElement('li');
     childElem.textContent = myObj.name+'-'+myObj.email+'-'+myObj.number;
     parentElem.appendChild(childElem);
+
+    const itemList = document.getElementById('users');
+    const deleteBtn = document.createElement('button');
+
+//Add classes to delete button
+deleteBtn.className = 'btn btn-danger btn-sm float-right delete'
+
+//Append Text node
+deleteBtn.appendChild(document.createTextNode('Delete'));
+
+childElem.appendChild(deleteBtn);
+
+itemList.appendChild(childElem);
+
+deleteBtn.onclick = () => {
+    localStorage.removeItem(myObj.email);
+    itemList.removeChild(childElem);
 }
+
+}
+
 // const btn = document.querySelector('.btn');
 // btn.addEventListener('click', e => {
 //     e.preventDefault();
