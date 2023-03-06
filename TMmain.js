@@ -21,7 +21,7 @@ const myObj_serialized = JSON.stringify(myObj);
 localStorage.setItem(myObj.email, myObj_serialized);
 //console.log(myObj_serialized);
 const myObj_deserialized = JSON.parse((localStorage.getItem('myObj')));
-console.log(myObj_deserialized);
+//console.log(myObj_deserialized);
 
 showUserOnScreen(myObj);
 
@@ -30,25 +30,37 @@ function showUserOnScreen(myObj)
 {
     const parentElem = document.getElementById('users');
     const childElem = document.createElement('li');
-    childElem.textContent = myObj.name+'-'+myObj.email+'-'+myObj.number;
+    childElem.textContent = myObj.name+' - '+myObj.email+' - '+myObj.number;
     parentElem.appendChild(childElem);
 
-    const itemList = document.getElementById('users');
+    //const itemList = document.getElementById('users');
     const deleteBtn = document.createElement('button');
+    const editBtn = document.createElement('button');
 
 //Add classes to delete button
 deleteBtn.className = 'btn btn-danger btn-sm float-right delete'
+editBtn.className = 'btn btn-danger btn-sm float-right edit'
 
 //Append Text node
 deleteBtn.appendChild(document.createTextNode('Delete'));
+editBtn.appendChild(document.createTextNode('Edit'));
 
 childElem.appendChild(deleteBtn);
+childElem.appendChild(editBtn);
 
-itemList.appendChild(childElem);
+parentElem.appendChild(childElem);
 
 deleteBtn.onclick = () => {
     localStorage.removeItem(myObj.email);
-    itemList.removeChild(childElem);
+    parentElem.removeChild(childElem);
+}
+
+editBtn.onclick = () => {
+    localStorage.removeItem(myObj.email);
+    parentElem.removeChild(childElem);
+    document.getElementById('name').value = myObj.name;
+    document.getElementById('email').value = myObj.email;
+    document.getElementById('number').value = myObj.number;
 }
 
 }
