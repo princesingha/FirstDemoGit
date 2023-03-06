@@ -12,16 +12,27 @@ event.preventDefault();
 // console.log(localStorage.getItem('emailid', email));
 var name = document.getElementById('name').value;
 var email = document.getElementById('email').value;
+var number = document.getElementById('number').value;
+
 let myObj = {
-    name, email
+    name, email, number
 };
 let myObj_serialized = JSON.stringify(myObj);
 localStorage.setItem('myObj', myObj_serialized);
 //console.log(myObj_serialized);
 let myObj_deserialized = JSON.parse((localStorage.getItem('myObj')));
 console.log(myObj_deserialized);
-}
 
+showUserOnScreen(myObj);
+
+}
+function showUserOnScreen(myObj)
+{
+    const parentElem = document.getElementById('users');
+    const childElem = document.createElement('li');
+    childElem.textContent = myObj.name+'-'+myObj.email+'-'+myObj.number;
+    parentElem.appendChild(childElem);
+}
 // const btn = document.querySelector('.btn');
 // btn.addEventListener('click', e => {
 //     e.preventDefault();
