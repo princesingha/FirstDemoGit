@@ -3,13 +3,23 @@
 
 function myfunc(event){
 event.preventDefault();
-var name = document.getElementById('name').value;
-localStorage.setItem('fullname', name);
-var email = document.getElementById('email').value;
-localStorage.setItem('emailid', email);
+// var name = document.getElementById('name').value;
+// localStorage.setItem('fullname', name);
+// var email = document.getElementById('email').value;
+// localStorage.setItem('emailid', email);
 
-console.log(localStorage.getItem('fullname', name));
-console.log(localStorage.getItem('emailid', email));
+// console.log(localStorage.getItem('fullname', name));
+// console.log(localStorage.getItem('emailid', email));
+var name = document.getElementById('name').value;
+var email = document.getElementById('email').value;
+let myObj = {
+    name, email
+};
+let myObj_serialized = JSON.stringify(myObj);
+localStorage.setItem('myObj', myObj_serialized);
+//console.log(myObj_serialized);
+let myObj_deserialized = JSON.parse((localStorage.getItem('myObj')));
+console.log(myObj_deserialized);
 }
 
 // const btn = document.querySelector('.btn');
